@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to web apps page by me 
+  button(type="button", class="btn btn-secondary", onclick="faster()") Press me
+
+  div(id="faster") add in extra
+
+  script.
+    let value = 1;
+    let amt = 2;
+
+    function faster() {
+      amt = amt * 2;
+      value = value + amt;
+      const el = document.getElementById('faster');
+      el.textContent = `Faster ${value} times ${amt}`;
+    }
+

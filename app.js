@@ -9,6 +9,8 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
 
 
 var db = mongoose.connection;
+var Costume = require("./models/costume");
+
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -22,6 +24,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 
 
 var indexRouter = require('./routes/index');

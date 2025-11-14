@@ -100,5 +100,35 @@ res.send(`{"error": document for id ${req.params.id} not found`);
 }
 };
 
+// Handle Costume delete on DELETE.
+exports.car_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+
+    result = await Costume.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+
+} 
+catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+};
+
+
+// Handle a show one view with id specified by query
+exports.car_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+        result = await Car.findById( req.query.id)
+        res.render('cardetail',
+            { title: 'Car Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+};
 
 

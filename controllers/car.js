@@ -105,7 +105,7 @@ exports.car_delete = async function(req, res) {
     console.log("delete " + req.params.id)
     try {
 
-    result = await Costume.findByIdAndDelete( req.params.id)
+    result = await Car.findByIdAndDelete( req.params.id)
     console.log("Removed " + result)
     res.send(result)
 
@@ -121,7 +121,7 @@ catch (err) {
 exports.car_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{
-        result = await Car.findById( req.query.id)
+        result = await car.findById( req.query.id)
         res.render('cardetail',
             { title: 'Car Detail', toShow: result });
     }

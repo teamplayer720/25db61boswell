@@ -121,7 +121,7 @@ catch (err) {
 exports.car_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
     try{
-        result = await car.findById( req.query.id)
+        result = await Car.findById( req.query.id)
         res.render('car_detail',
             { title: 'Car Detail', toShow: result });
     }
@@ -137,7 +137,7 @@ exports.car_view_one_Page = async function(req, res) {
 exports.car_create_Page = function(req, res) {
     console.log("create view")
     try{
-        res.render('carcreate', { title: 'Car Create'});
+        res.render('car_create', { title: 'Car Create'});
     }
 catch(err){
     res.status(500)

@@ -10,4 +10,7 @@ router.get('/detail', car_controllers.car_view_one_Page);
 /* GET create costume page */
 router.get('/create', car_controllers.car_create_Page);
 
+/* GET create update page */
+router.get('/update', car_controllers.car_update_Page);
+
 module.exports = router;

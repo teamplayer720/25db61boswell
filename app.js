@@ -107,9 +107,30 @@ app.use('/grid', gridRouter);
 app.use('/resource', resourceRouter);
 
 
+// passport config
+// Use the existing connection
+// The Account model
+var Account =require('./models/account.js');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 app.use(function(err, req, res, next) {

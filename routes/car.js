@@ -16,5 +16,11 @@ router.get('/update', car_controllers.car_update_Page);
 /* GET delete costume page */
 router.get('/delete', car_controllers.car_delete_Page);
 
+/* GET update costume page */
+router.get('/update', car_controllers.car_update_Page); 
+
+/* GET update costume page */
+router.get('/update', secured, car_controllers.car_update_Page);
+
 
 module.exports = router;

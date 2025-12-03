@@ -174,7 +174,14 @@ exports.car_delete_Page = async function(req, res) {
     }
 };
 
-
+// A little function to check if we have an authorized user and continue on
+// redirect to login.
+const secured = (req, res, next) => {
+    if (req.user){
+    return next();
+    }
+    res.redirect("/login");
+}
 
 
 
